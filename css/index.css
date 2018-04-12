@@ -1,0 +1,37 @@
+.titleWrapper {
+    border-left: solid 3px lightgray;
+    animation: dim 5s infinite;
+    padding-left: calc(25% - 25px);
+} 
+
+.titleWrapper h2{
+    animation: fadein 5s infinite;
+}
+
+@keyframes dim {
+    0%, 100% {
+        opacity: 0;
+    } 
+
+    25%, 75% {
+        opacity: 0.5;
+    }
+    
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    0%, 100% {
+        color: inherit;
+    } 
+
+    25%, 75% {
+        color: lightgrey;
+    }
+    
+    50% {
+        color: rgb(36, 36, 36);
+    }
+}
