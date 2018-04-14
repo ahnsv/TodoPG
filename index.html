@@ -4,17 +4,23 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Humphrey Playground</title>
+    <title>Better Sticky Note</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
-    <!-- <script src="main.js"></script> -->
+    <script src="js/main.js"></script>
 </head>
 
 <body>
-    <div class="titleWrapper">
-        <h1> This is not a drill. </h1>
-        <!-- How's the rolling thing work? Let's try this out later on -->
-        <h2 style="color:transparent;">JK, it's a drill</h2>
+    <div class="app-wrapper">
+        <div class="side-nav">
+            <div id="todolists">todolists</div>
+            <div id="notes">notes</div>
+            <div id="reminders">reminders</div>
+        </div>
+        <article class="content">
+            <input type="text" name="markdown-editor" id="markdown-editor">
+            <label for="markdown-editor">Markdown Editor</label>
+        </article>
     </div>
 </body>
 

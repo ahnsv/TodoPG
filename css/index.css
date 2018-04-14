@@ -1,37 +1,23 @@
-.titleWrapper {
-    border-left: solid 3px lightgray;
-    animation: dim 5s infinite;
-    padding-left: calc(25% - 25px);
-} 
-
-.titleWrapper h2{
-    animation: fadein 5s infinite;
+body {
+    background-size: cover;
+    margin: 0;
 }
 
-@keyframes dim {
-    0%, 100% {
-        opacity: 0;
-    } 
-
-    25%, 75% {
-        opacity: 0.5;
-    }
-    
-    50% {
-        opacity: 1;
-    }
+.app-wrapper {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    height: -webkit-fill-available;
 }
 
-@keyframes fadein {
-    0%, 100% {
-        color: inherit;
-    } 
+.side-nav {
+    border-right: solid;
+    height: inherit;
+}
 
-    25%, 75% {
-        color: lightgrey;
-    }
-    
-    50% {
-        color: rgb(36, 36, 36);
-    }
+.side-nav div:hover {
+    background-color: rgb(128, 128, 128)
+}
+
+article.content {
+    padding: 0px 15px;
 }
