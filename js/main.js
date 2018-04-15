@@ -1,14 +1,19 @@
+/* TODO: How to make an input markdown file, 
+ * and store it into indexedDB;
+ */
+
 (function () {
-    var db, input;
+    var db, inputText, inputSubmit;
     databaseOpen(function () {
-        console.log("The database has been opened");
-        input = document.querySelector('input');
-        input.addEventListener('submit', onSubmit);
+        console.log("TextThe database has been opened");
+        var inputs = document.querySelectorAll('input');
+        [inputText, inputSubmit] = inputs;
+        inputSubmit.addEventListener('click', onSubmit);
     })
     function onSubmit(e) {
         e.preventDefault();
-        databaseTodosAdd(input.value, function(){
-            input.value = '';
+        databaseTodosAdd(inputText.value, function(){
+            inputText.value = '';
         });
     }
     function databaseOpen(callback) {
@@ -38,7 +43,6 @@
         transaction.oncomplete = function(e) { callback(); };
         request.onerror = databaseError;
         console.log('todo added');
-        
     }
 }());
 
@@ -46,7 +50,6 @@ window.onload = function () {
     var appWrapper = document.getElementsByClassName('app-wrapper');
     var sideNav = document.getElementsByClassName('side-nav');
     var content = document.getElementsByClassName('content');
-    var input = document.getElementsByTagName('input');
 
     sideNav[0].onclick = function () {
         appWrapper[0].style.gridTemplateColumns = '1fr';
@@ -55,11 +58,6 @@ window.onload = function () {
     content[0].onmouseenter = function () {
         appWrapper[0].style.gridTemplateColumns = '0.5fr 1fr';
         sideNav[0].hidden = false;
-    }
-    input[0].onkeydown = function (e) {
-        if (e.which == '13') {
-            input.addEventListener('submit', onSubmit);
-        }
     }
 }
 
