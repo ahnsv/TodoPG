@@ -3,7 +3,7 @@
     databaseOpen(function () {
         console.log("The database has been opened");
         input = document.querySelector('input');
-        document.body.addEventListener('submit', onSubmit);
+        input.addEventListener('submit', onSubmit);
     })
     function onSubmit(e) {
         e.preventDefault();
@@ -37,6 +37,8 @@
         })
         transaction.oncomplete = function(e) { callback(); };
         request.onerror = databaseError;
+        console.log('todo added');
+        
     }
 }());
 
@@ -54,8 +56,10 @@ window.onload = function () {
         appWrapper[0].style.gridTemplateColumns = '0.5fr 1fr';
         sideNav[0].hidden = false;
     }
-    input[0].onsubmit = function() {
-        console.log('hi');
+    input[0].onkeydown = function (e) {
+        if (e.which == '13') {
+            input.addEventListener('submit', onSubmit);
+        }
     }
 }
 
